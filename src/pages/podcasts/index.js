@@ -27,11 +27,11 @@ const Cover = styled.img`
   height: 100%;
 `
 const Disk = styled(Img)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute !important;
+  top: 5% !important;
+  left: 5% !important;
+  width: 90% !important;
+  height: 90% !important;
   transition: all 1s ease-in-out;
 `
 const Convert = styled.div`
@@ -63,7 +63,7 @@ const Convert = styled.div`
   }
 
   &:hover ${Disk} {
-    transform: translateX(45%);
+    transform: translateX(52%);
   }
 `
 const Container = styled.div`
@@ -106,9 +106,10 @@ const AllPodcasts = ({ data }) => (
     <Container>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Convert key={node.id}>
-          <Disk fixed={data.logoVinyl.childImageSharp.fixed} />
-          <Cover src="https://picsum.photos/300" className="cover" />
-          {/* <Link to={node.fields.slug}>{node.frontmatter.test_field}</Link> */}
+          <Link to={node.fields.slug}>
+            <Disk fixed={data.logoVinyl.childImageSharp.fixed} />
+            <Cover src="https://picsum.photos/300" className="cover" />
+          </Link>
         </Convert>
       ))}
     </Container>
