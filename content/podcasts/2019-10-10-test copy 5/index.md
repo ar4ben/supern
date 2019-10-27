@@ -1,8 +1,6 @@
 ---
-test_field: test_field_value
+title: что по чем
 date: 2019-11-10
 ---
 
-## TEST HEADER
-
-BLA-BLA-BLA
+Какой-то текст

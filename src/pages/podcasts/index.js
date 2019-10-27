@@ -2,29 +2,19 @@ import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import './index.css'
+import Layout from '../../components/podcasts/Layout'
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
 //
 
-const LogoSpin = styled(Img)`
-  animation: spin 10s linear infinite;
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`
-const Logo = styled.div`
-  display: flex;
-  justify-content: center;
-`
-const Cover = styled.img`
+const Cover = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: #4f5baa;
+  opacity: 0.2;
+  border: 1px solid grey;
 `
 const Disk = styled(Img)`
   position: absolute !important;
@@ -35,9 +25,13 @@ const Disk = styled(Img)`
   transition: all 1s ease-in-out;
 `
 const Convert = styled.div`
+  @media only screen and (max-width: 740px) {
+    width: 100%;
+    padding-bottom: 100%;
+  }
   position: relative;
-  width: 33%;
-  padding-bottom: 33%;
+  width: 33.333%;
+  padding-bottom: 33.333%;
   transition: all 0.5s ease-in-out;
   animation: nohovering 1s linear;
   @keyframes nohovering {
@@ -67,11 +61,17 @@ const Convert = styled.div`
   }
 `
 const Container = styled.div`
-  width: 50%;
+  @media only screen and (max-width: 740px) {
+    flex-direction: column;
+    width: 50%;
+  }
+  @media only screen and (max-width: 420px) {
+    width: 90%;
+  }
+  max-width: 800px;
   margin: auto;
   flex-wrap: wrap;
   display: flex;
-  justify-content: center;
 
   &:hover ${Convert} {
     filter: blur(1px) sepia(50%);
@@ -82,38 +82,46 @@ const Container = styled.div`
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
   }
 `
+const TextBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const Title = styled.div`
+  word-wrap: break-word;
+  width: 80%;
+  text-align: center;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+`
 
-// imageSharp(id: { regex: "/cover/" }) {
-//   fixed(width: 125, height: 125) {
-//     ...GatsbyImageSharpFixed
-//   }
-// }
-
-// logoVinyl: file(relativePath: { regex: "/logo-vinyl.png/" }) {
-//   childImageSharp {
-//     fluid(maxWidth: 225) {
-//       ...GatsbyImageSharpFluid
-//     }
-//   }
-// }
 const AllPodcasts = ({ data }) => (
-  <React.Fragment>
-    <Logo>
-      <Img fixed={data.logoLeft.childImageSharp.fixed} />
-      <LogoSpin fixed={data.logoVinyl.childImageSharp.fixed} />
-      <Img fixed={data.logoRight.childImageSharp.fixed} />
-    </Logo>
+  <Layout>
     <Container>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Convert key={node.id}>
           <Link to={node.fields.slug}>
-            <Disk fixed={data.logoVinyl.childImageSharp.fixed} />
-            <Cover src="https://picsum.photos/300" className="cover" />
+            <Disk fixed={data.disk.childImageSharp.fixed} />
+            {/* <Cover src={`https://picsum.photos/300?x=${node.id}`} className="cover" /> */}
+            <Cover />
+            <TextBox>
+              <Title>{node.frontmatter.title}</Title>
+            </TextBox>
           </Link>
         </Convert>
       ))}
     </Container>
-  </React.Fragment>
+  </Layout>
 )
 
 export const query = graphql`
@@ -125,7 +133,7 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            test_field
+            title
             date
           }
           fields {
@@ -135,21 +143,7 @@ export const query = graphql`
         }
       }
     }
-    logoLeft: file(relativePath: { regex: "/logo-left.png/" }) {
-      childImageSharp {
-        fixed {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    logoVinyl: file(relativePath: { regex: "/logo-vinyl.png/" }) {
-      childImageSharp {
-        fixed {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    logoRight: file(relativePath: { regex: "/logo-right.png/" }) {
+    disk: file(relativePath: { regex: "/podcasts/disk.png/" }) {
       childImageSharp {
         fixed {
           ...GatsbyImageSharpFixed

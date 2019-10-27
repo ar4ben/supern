@@ -1,8 +1,6 @@
 ---
-test_field: test_field_value
+title: Тестовый заголовок, на который всем похер
 date: 2019-11-10
 ---
 
-## TEST HEADER
-
-BLA-BLA-BLA
+В эту статью никто не зайдет
