@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import AudioCard from 'audiocard'
 import Layout from '../components/podcasts/Layout'
 
 const PodcastBox = styled.div`
@@ -35,6 +36,11 @@ const Podcast = ({ data }) => (
       <Title>{data.markdownRemark.frontmatter.title}</Title>
       <Date>{data.markdownRemark.frontmatter.date}</Date>
       <Description dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      <AudioCard
+        source={data.markdownRemark.frontmatter.soundSource}
+        skipBackSeconds={10}
+        skipForwardSeconds={30}
+      />
     </PodcastBox>
   </Layout>
 )
@@ -45,6 +51,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: " D MMMM, YYYY", locale: "ru-RU")
+        soundSource
       }
     }
   }

@@ -18,6 +18,7 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   margin: 2%;
+  overflow: hidden;
 `
 const LogoBlock = () => (
   <StaticQuery
