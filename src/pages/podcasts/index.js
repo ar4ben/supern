@@ -2,10 +2,11 @@ import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import {PlayCircle} from 'styled-icons/boxicons-regular/PlayCircle'
 import './index.css'
 import AudioCard from 'audiocard'
 import Layout from '../../components/podcasts/Layout'
-import { strictEqual } from 'assert'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
 //
@@ -72,20 +73,21 @@ const Container = styled.div`
   @media only screen and (max-width: 420px) {
     width: 90%;
   }
+  @media only screen and (min-width: 740px) {
+    &:hover ${Convert} {
+      filter: blur(1px) sepia(50%);
+    }
+  
+    &:hover ${Convert}:hover {
+      filter: blur(0px);
+      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    }
+  }
   max-width: 800px;
   margin: auto;
   padding-bottom: 3%;
   flex-wrap: wrap;
   display: flex;
-
-  &:hover ${Convert} {
-    filter: blur(1px) sepia(50%);
-  }
-
-  &:hover ${Convert}:hover {
-    filter: blur(0px);
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-  }
 `
 const TextBox = styled.div`
   position: absolute;
@@ -110,12 +112,15 @@ const Title = styled.div`
   font-size: 1.2rem;
 `
 
-const PlayButton = styled.button`
+const PlayButton = styled(PlayCircle)`
+  color: #ffffffcc;
   width: 20%;
-  height: 10%;
   position: absolute;
   top: 0;
   left: 0;
+  &:hover {
+    color: #4f5baa;
+  }
 `
 const AudioBox = styled.div`
   @media only screen and (max-width: 800px) {
@@ -132,7 +137,7 @@ const AudioBox = styled.div`
   bottom: 0;
   transition: all 0.5s ease-in-out; 
   width: 800px;
-  background-color: #ffffff80;
+  background-color: #ffffffc2;
 `
 
 class AllPodcasts extends React.Component {
@@ -162,6 +167,7 @@ class AllPodcasts extends React.Component {
                   <Title>{node.frontmatter.title}</Title>
                 </TextBox>
                 <PlayButton onClick={(element) => this.handlePlayClick(element,node.frontmatter.soundSource,node.frontmatter.title)} />
+                {/* <PlayButton onClick={(element) => this.handlePlayClick(element,node.frontmatter.soundSource,node.frontmatter.title)} /> */}
               </Link>
             </Convert>
           ))}
