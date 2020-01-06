@@ -6,7 +6,6 @@ import {PlayCircle} from 'styled-icons/boxicons-regular/PlayCircle'
 import './index.css'
 import AudioCard from 'audiocard'
 import Layout from '../../components/podcasts/Layout'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
 //
@@ -98,6 +97,7 @@ const TextBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `
 const Title = styled.div`
   word-wrap: break-word;
@@ -157,30 +157,28 @@ class AllPodcasts extends React.Component {
     return (
       <Layout>
         <Container>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
+          { data.allMarkdownRemark.edges.map(({ node }) => (
             <Convert key={node.id}>
               <Link to={node.fields.slug}>
                 <Disk fixed={data.disk.childImageSharp.fixed} />
-                {/* <Cover src={`https://picsum.photos/300?x=${node.id}`} className="cover" /> */}
                 <Cover />
                 <TextBox>
                   <Title>{node.frontmatter.title}</Title>
                 </TextBox>
                 <PlayButton onClick={(element) => this.handlePlayClick(element,node.frontmatter.soundSource,node.frontmatter.title)} />
-                {/* <PlayButton onClick={(element) => this.handlePlayClick(element,node.frontmatter.soundSource,node.frontmatter.title)} /> */}
               </Link>
             </Convert>
           ))}
           { this.state.isActive &&
-          <AudioBox>
-          <AudioCard
-            title={this.state.currentSoundTitle}
-            source={this.state.currentSoundSource}
-            skipBackSeconds={10}
-            skipForwardSeconds={30}
-            autoPlay
-          />
-        </AudioBox>
+            <AudioBox>
+              <AudioCard
+                title={this.state.currentSoundTitle}
+                source={this.state.currentSoundSource}
+                skipBackSeconds={10}
+                skipForwardSeconds={30}
+                autoPlay
+              />
+            </AudioBox>
           }
         </Container>
       </Layout>
