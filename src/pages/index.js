@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const BigLogo = styled.h1`
-  margin-top: 10%;
+  margin-top: 5%;
   color: #c96567;
   font-size: 20vw;
   position: absolute;
@@ -23,7 +23,7 @@ const BigLogo = styled.h1`
 const WaveContainer = styled.div`
   position: relative;
   & path {
-    animation: slidein 30s linear infinite alternate;
+    animation: slidein 40s linear infinite alternate;
   }
   @keyframes slidein {
     0% {
