@@ -1,5 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
+import { Link } from 'gatsby'
 import LogoBlock from './LogoBlock'
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
@@ -26,7 +27,9 @@ const GlobalStyle = createGlobalStyle`
 `
 const Layout = ({ children }) => (
   <React.Fragment>
-    <LogoBlock />
+    <Link to="/podcasts">
+      <LogoBlock />
+    </Link>
     {children}
     <GlobalStyle />
   </React.Fragment>
