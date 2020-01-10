@@ -10,6 +10,9 @@ const PodcastBox = styled.div`
     margin: auto;
   }
   margin: 2rem;
+  background-color: #ffffffc2;
+  border-radius: 15px;
+  padding: 1%;
 `
 
 const Title = styled.h1`
@@ -18,6 +21,7 @@ const Title = styled.h1`
   }
   color: #4f5baa;
   text-align: left;
+  margin: 1% 0 2% 0;
 `
 const Description = styled.p`
   @media only screen and (min-width: 800px) {

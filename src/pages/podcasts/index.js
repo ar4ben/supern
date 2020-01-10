@@ -83,9 +83,11 @@ const Container = styled.div`
   }
   max-width: 800px;
   margin: auto;
-  padding-bottom: 3%;
+  padding: 1.5%;
   flex-wrap: wrap;
   display: flex;
+  background-color: #fef7f4;
+  border-radius: 25px;
 `
 const TextBox = styled.div`
   position: absolute;

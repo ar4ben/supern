@@ -6,7 +6,7 @@ import LogoBlock from './LogoBlock'
 //
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: white;
+    background-color: #fef7f4;
     overflow-x: hidden;
     font-family: "Roboto", Arial, sans-serif;
     color: hsla(0, 0%, 0%, 0.8);
@@ -16,13 +16,12 @@ const GlobalStyle = createGlobalStyle`
   body:before {
     z-index: -2;
     height: 100%;
-    width: 80%;
+    width: 50%;
     content: "";
-    background-color: #f8d9c680;
+    background-color: #c96567;
     position: fixed;
     top: 0;
     left: 0;
-    transform: skewX(-13deg) translateX(13%);
   }
 `
 const Layout = ({ children }) => (
