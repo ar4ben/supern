@@ -74,7 +74,7 @@ const MainPage = () => (
     <Project>
       <Link to="/podcasts">ПОДКАСТЫ</Link>
     </Project>
-    <Footer />
+    <Footer borderColor="#fef7f47a" textColor="#fef7f4" />
     <GlobalStyle />
   </React.Fragment>
 )
