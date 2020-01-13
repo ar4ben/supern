@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
+import Footer from '../components/Footer'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -73,6 +74,7 @@ const MainPage = () => (
     <Project>
       <Link to="/podcasts">ПОДКАСТЫ</Link>
     </Project>
+    <Footer />
     <GlobalStyle />
   </React.Fragment>
 )
