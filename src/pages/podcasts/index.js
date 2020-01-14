@@ -104,8 +104,8 @@ const Title = styled.div`
   word-wrap: break-word;
   width: 80%;
   text-align: center;
-  border-bottom: 1px solid white;
-  border-left: 1px solid white;
+  border-bottom: 1px solid #ffffffb8;
+  border-left: 1px solid #ffffffb8;
   border-radius: 3px;
   text-transform: uppercase;
   color: white;
