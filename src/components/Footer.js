@@ -48,16 +48,16 @@ const RootLink = styled.div`
 const Footer = props => (
   <FooterWrapper borderColor={props.borderColor} textColor={props.textColor}>
     <div>
-      <a href="mailto:bam2020@gmail.com">bam2020@gmail.com</a>
+      <a href="mailto:superninuper@gmail.com">superninuper@gmail.com</a>
     </div>
     <RootLink>
-      <Link href="/">© 2020 BAM2020</Link>
+      <Link href="/">© 2020 SUPERNINUPER</Link>
     </RootLink>
     <SocialLinks>
-      <a target="_blank" href="https://twitter.com/bam2020">
+      <a target="_blank" href="https://twitter.com/superninuper">
         Twitter
       </a>
-      <a target="_blank" href="https://instagram.com/bam2020">
+      <a target="_blank" href="https://instagram.com/superninuper">
         Instagram
       </a>
     </SocialLinks>

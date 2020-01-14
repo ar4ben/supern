@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const BigLogo = styled.h1`
-  margin-top: 5%;
+  margin-top: 10%;
   color: #c96567;
-  font-size: 20vw;
+  font-size: 13vw;
   position: absolute;
   top: 0%;
   width: 100%;
@@ -59,7 +59,7 @@ const Project = styled.div`
 const MainPage = () => (
   <React.Fragment>
     <WaveContainer>
-      <BigLogo>BAM2020</BigLogo>
+      <BigLogo>SUPERNINUPER</BigLogo>
       <svg
         fill="black"
         stroke="none"
