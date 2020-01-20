@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import AudioCard from 'audiocard'
-import { ArrowBackOutline } from 'styled-icons/typicons/ArrowBackOutline'
+import { Link } from 'gatsby'
+import { ArrowGoBack } from 'styled-icons/remix-line/ArrowGoBack'
 import Layout from '../components/podcasts/Layout'
 
 const PodcastBox = styled.div`
@@ -34,10 +35,18 @@ const Date = styled.p`
   text-align: left;
   opacity: 0.7;
 `
+const ReturnButton = styled(Link)`
+  display: flex;
+  justify-content: center;
+  color: #666;
+`
 
 const Podcast = ({ data }) => (
   <Layout>
     <PodcastBox>
+      <ReturnButton to="/podcasts">
+        <ArrowGoBack height="3rem" />
+      </ReturnButton>
       <Title>{data.markdownRemark.frontmatter.title}</Title>
       <Date>{data.markdownRemark.frontmatter.date}</Date>
       <Description dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
