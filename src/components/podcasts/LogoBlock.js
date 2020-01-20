@@ -24,21 +24,21 @@ const LogoBlock = () => (
   <StaticQuery
     query={graphql`
       query {
-        logoLeft: file(relativePath: { regex: "/podcasts/logo-left.png/" }) {
+        logoLeft: file(relativePath: { regex: "/podcasts/img/logo-left.png/" }) {
           childImageSharp {
             fixed {
               ...GatsbyImageSharpFixed
             }
           }
         }
-        logoVinyl: file(relativePath: { regex: "/podcasts/logo-vinyl.png/" }) {
+        logoVinyl: file(relativePath: { regex: "/podcasts/img/logo-vinyl.png/" }) {
           childImageSharp {
             fixed {
               ...GatsbyImageSharpFixed
             }
           }
         }
-        logoRight: file(relativePath: { regex: "/podcasts/logo-right.png/" }) {
+        logoRight: file(relativePath: { regex: "/podcasts/img/logo-right.png/" }) {
           childImageSharp {
             fixed {
               ...GatsbyImageSharpFixed

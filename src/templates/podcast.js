@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import AudioCard from 'audiocard'
+import { ArrowBackOutline } from 'styled-icons/typicons/ArrowBackOutline'
 import Layout from '../components/podcasts/Layout'
 
 const PodcastBox = styled.div`

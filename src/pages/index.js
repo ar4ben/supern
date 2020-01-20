@@ -48,7 +48,7 @@ const Project = styled.div`
   text-align: center;
   font-size: 3vw;
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   margin: 0 0 1em 0;
   & a {
     text-decoration: none;
@@ -72,7 +72,7 @@ const MainPage = () => (
       </svg>
     </WaveContainer>
     <Project>
-      <Link to="/podcasts">ПОДКАСТЫ</Link>
+      <Link to="/podcasts">ПОДКАСТ</Link>
     </Project>
     <Footer borderColor="#fef7f47a" textColor="#fef7f4" />
     <GlobalStyle />

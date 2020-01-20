@@ -86,7 +86,7 @@ const Container = styled.div`
   padding: 1.5%;
   flex-wrap: wrap;
   display: flex;
-  background-color: #fef7f4;
+  background-color: #ffffffc2;
   border-radius: 25px;
 `
 const TextBox = styled.div`
@@ -207,9 +207,9 @@ export const query = graphql`
         }
       }
     }
-    disk: file(relativePath: { regex: "/podcasts/disk.png/" }) {
+    disk: file(relativePath: { regex: "/podcasts/img/disk.png/" }) {
       childImageSharp {
-        fixed {
+        fixed(width: 935, height: 950) {
           ...GatsbyImageSharpFixed
         }
       }
