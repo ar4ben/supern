@@ -1,12 +1,13 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
+import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
 import Footer from '../Footer'
 import LogoBlock from './LogoBlock'
 import backgroundImage from '../../pages/podcasts/img/podcasts-background.jpeg'
+
 // import PropTypes from 'prop-types'
-// import logoSrc from './cover.jpg'
-//
+
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: #fef7f4;
@@ -18,8 +19,22 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
   }
 `
+const LinkToMainPage = styled(Link)`
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &:hover {
+    color: #4f5baa;
+  }
+  margin: 1%;
+`
+
 const Layout = ({ children }) => (
   <React.Fragment>
+    <LinkToMainPage to="/" title="SUPERNINUPER">
+      <UpArrowCircle height="3rem" />
+    </LinkToMainPage>
     <Link to="/podcasts">
       <LogoBlock />
     </Link>
