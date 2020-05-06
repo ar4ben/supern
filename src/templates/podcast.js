@@ -44,7 +44,7 @@ const ReturnButton = styled(Link)`
 const Podcast = ({ data }) => (
   <Layout>
     <PodcastBox>
-      <ReturnButton to="/podcasts">
+      <ReturnButton to="/podcasts" title="Вернуться">
         <ArrowGoBack height="3rem" />
       </ReturnButton>
       <Title>{data.markdownRemark.frontmatter.title}</Title>

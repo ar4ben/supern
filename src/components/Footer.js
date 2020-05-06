@@ -51,7 +51,7 @@ const Footer = props => (
       <a href="mailto:superninuper@gmail.com">superninuper@gmail.com</a>
     </div>
     <RootLink>
-      <Link href="/">© 2020 SUPERNINUPER</Link>
+      <Link to="/">© 2020 SUPERNINUPER</Link>
     </RootLink>
     <SocialLinks>
       <a target="_blank" href="https://twitter.com/superninuper">
