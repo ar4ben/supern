@@ -10,6 +10,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: `/${relativeDirectory}`,
     })
+  } else if (node.absolutePath && node.absolutePath.includes('content/comic')) {
+    createNodeField({
+      node,
+      name: `pageNumber`,
+      value: parseInt(node.name),
+    })
   }
 }
 

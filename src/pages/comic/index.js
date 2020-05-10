@@ -25,7 +25,7 @@ const MainComicPage = () => {
           absolutePath: { regex: "content/comic/" }
           extension: { regex: "/(jpeg|jpg|gif|png)/" }
         }
-        sort: { fields: name, order: ASC }
+        sort: { fields: fields___pageNumber, order: ASC }
       ) {
         edges {
           node {
