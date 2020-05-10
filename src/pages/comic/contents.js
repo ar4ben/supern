@@ -10,13 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Exo 2', sans-serif;
   }
 `
-const MainTitle = styled.h1`
-  color: rgb(204, 255, 0);
-  font-size: 8vw;
-  text-align: center;
-  width: 100%;
-`
-
 const MainComicPage = () => {
   const imagesResult = useStaticQuery(graphql`
     {
@@ -45,9 +38,13 @@ const MainComicPage = () => {
   } = imagesResult
   return (
     <React.Fragment>
-      <MainTitle>ГИДРАВЛИЧЕСКИЙ СЕРЕЖА</MainTitle>
-      <Link to="/comic/contents">Оглавление</Link>
-      <Img fluid={edges[0].node.childImageSharp.fluid} />
+      {edges.map(edge => (
+        <Img
+          key={edge.node.childImageSharp.fluid.src}
+          fluid={edge.node.childImageSharp.fluid}
+          style={{ margin: '3rem 0' }}
+        />
+      ))}
       <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
       <GlobalStyle />
     </React.Fragment>
