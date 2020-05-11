@@ -14,16 +14,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `pageNumber`,
-      value: parseInt(node.name),
+      value: parseInt(node.name, 10),
     })
   }
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(`
+  const podcasts = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "content/podcasts/" } }) {
         edges {
           node {
             fields {
@@ -34,12 +34,39 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const comicPages = await graphql(`
+    query {
+      allFile(
+        filter: {
+          absolutePath: { regex: "content/comic/" }
+          extension: { regex: "/(jpeg|jpg|gif|png)/" }
+        }
+      ) {
+        edges {
+          node {
+            fields {
+              pageNumber
+            }
+          }
+        }
+      }
+    }
+  `)
+  podcasts.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/podcast.js`),
       context: {
         slug: node.fields.slug,
+      },
+    })
+  })
+  comicPages.data.allFile.edges.forEach(({ node }) => {
+    createPage({
+      path: `comic/page/${node.fields.pageNumber}`,
+      component: path.resolve(`./src/templates/comicPage.js`),
+      context: {
+        pageNumber: node.fields.pageNumber,
       },
     })
   })

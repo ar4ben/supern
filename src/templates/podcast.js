@@ -1,8 +1,7 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import AudioCard from 'audiocard'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { ArrowGoBack } from 'styled-icons/remix-line/ArrowGoBack'
 import Layout from '../components/podcasts/Layout'
 
