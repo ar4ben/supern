@@ -12,45 +12,42 @@ const GlobalStyle = createGlobalStyle`
 `
 const MainTitle = styled.h1`
   color: rgb(204, 255, 0);
-  font-size: 8vw;
+  font-size: 5vw;
   text-align: center;
-  width: 100%;
+  margin: 20% 0 20% 0;
 `
 
-const MainComicPage = () => {
-  const imagesResult = useStaticQuery(graphql`
-    {
-      allFile(
-        filter: {
-          absolutePath: { regex: "content/comic/" }
-          extension: { regex: "/(jpeg|jpg|gif|png)/" }
-        }
-        sort: { fields: fields___pageNumber, order: ASC }
-      ) {
-        edges {
-          node {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-            name
-          }
+const MainComicPage = ({ data }) => (
+  <React.Fragment>
+    <MainTitle>
+      ГИДРАВЛИЧЕСКИЙ
+      <br />
+      СЕРЕЖА
+    </MainTitle>
+    <Img fluid={data.file.childImageSharp.fluid} />
+    <Link to="/comic/page/2">Читать дальше</Link>
+    <Link to="/comic/contents">Оглавление</Link>
+    <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
+    <GlobalStyle />
+  </React.Fragment>
+)
+
+export const query = graphql`
+  query {
+    file(
+      absolutePath: { regex: "content/comic/" }
+      extension: { regex: "/(jpeg|jpg|gif|png)/" }
+      fields: { pageNumber: { eq: 1 } }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
         }
       }
+      fields {
+        pageNumber
+      }
     }
-  `)
-  const {
-    allFile: { edges },
-  } = imagesResult
-  return (
-    <React.Fragment>
-      <MainTitle>ГИДРАВЛИЧЕСКИЙ СЕРЕЖА</MainTitle>
-      <Link to="/comic/contents">Оглавление</Link>
-      <Img fluid={edges[0].node.childImageSharp.fluid} />
-      <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
-      <GlobalStyle />
-    </React.Fragment>
-  )
-}
+  }
+`
 export default MainComicPage

@@ -142,11 +142,11 @@ const AudioBox = styled.div`
 `
 
 class AllPodcasts extends React.Component {
-    state = {
-      isActive: false,
-      currentSoundSource: '',
-      currentSoundTitle: ''
-    }
+  state = {
+    isActive: false,
+    currentSoundSource: '',
+    currentSoundTitle: ''
+  }
 
   handlePlayClick = (element , soundSource, soundTitle) => {
     element.preventDefault()
