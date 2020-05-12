@@ -1,16 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { createGlobalStyle } from 'styled-components'
-import Footer from '../../components/Footer'
+import styled from 'styled-components'
 import ReturnArrow from '../../components/ReturnArrow'
+import Layout from '../../components/comic/Layout'
+import Footer from '../../components/Footer'
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: black;
-    font-family: 'Exo 2', sans-serif;
-  }
-`
 const ImageGallery = styled.div`
   @media screen and (min-width: 300px) {
     width: 300px;
@@ -45,7 +40,7 @@ const MainComicPage = ({
     allFile: { edges },
   },
 }) => (
-  <React.Fragment>
+  <Layout>
     <ImageGallery>
       {edges.map(edge => (
         <ImageWrapper to={`comic/page/${edge.node.name}`}>
@@ -55,8 +50,7 @@ const MainComicPage = ({
     </ImageGallery>
     <ReturnArrow to="/comic" title="На главную" color="rgb(204, 255, 0)" />
     <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
-    <GlobalStyle />
-  </React.Fragment>
+  </Layout>
 )
 
 export const query = graphql`

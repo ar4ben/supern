@@ -8,7 +8,8 @@ const LinkToRoot = styled(Link)`
   &:hover {
     color: ${({ hoverColor }) => hoverColor};
   }
-  margin: 1%;
+  margin: 5px;
+  display: block;
 `
 
 const LinkToMainPage = props => {

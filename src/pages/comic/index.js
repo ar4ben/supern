@@ -4,18 +4,8 @@ import Img from 'gatsby-image'
 import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../../components/Footer'
 import LinkToMainPage from '../../components/LinkToMainPage'
+import Layout from '../../components/comic/Layout'
 
-const GlobalStyle = createGlobalStyle`
-  html {
-    height: 100%;
-  }
-  body {
-    min-height: 100%;
-    margin: 0;
-    background-color: black;
-    font-family: 'Exo 2', sans-serif;
-  }
-`
 const MainTitle = styled.h1`
   color: rgb(204, 255, 0);
   display: flex;
@@ -71,11 +61,6 @@ const LinkButton = styled.div`
     transition: all 1s ease-in-out;
   }
 `
-const LinkToMainPagePositioned = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-`
 
 class MainComicPage extends React.Component {
   state = {
@@ -99,10 +84,7 @@ class MainComicPage extends React.Component {
   render() {
     const { data } = this.props
     return (
-      <React.Fragment>
-        <LinkToMainPagePositioned style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
-          <LinkToMainPage hoverColor='rgb(204, 255, 0)'/>
-        </LinkToMainPagePositioned>
+      <Layout>
         <MainTitle style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
           ГИДРАВЛИЧЕСКИЙ
           <br />
@@ -114,8 +96,7 @@ class MainComicPage extends React.Component {
           <LinkButton><Link to="/comic/contents">Оглавление</Link></LinkButton>
           <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
         </MainPageBody>
-        <GlobalStyle />
-      </React.Fragment>
+      </Layout>
     )
   }
 }
