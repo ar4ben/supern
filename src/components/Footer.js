@@ -54,10 +54,10 @@ const Footer = props => (
       <Link to="/">© 2020 SUPERNINUPER</Link>
     </RootLink>
     <SocialLinks>
-      <a target="_blank" href="https://twitter.com/superninuper">
+      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/superninuper">
         Twitter
       </a>
-      <a target="_blank" href="https://instagram.com/superninuper">
+      <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/superninuper">
         Instagram
       </a>
     </SocialLinks>

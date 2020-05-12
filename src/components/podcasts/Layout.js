@@ -1,7 +1,6 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
-import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
 import Footer from '../Footer'
 import LogoBlock from './LogoBlock'
 import backgroundImage from '../../pages/podcasts/img/podcasts-background.jpeg'
