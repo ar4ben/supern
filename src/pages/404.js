@@ -3,6 +3,7 @@ import React from 'react'
 import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
 import { Link } from 'gatsby'
 import Footer from '../components/Footer'
+import LinkToMainPage from '../components/LinkToMainPage'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -26,22 +27,11 @@ const ErrorText = styled.h2`
   font-weight: 600;
   font-family: 'Exo 2', sans-serif;
 `
-const LinkToMainPage = styled(Link)`
-  color: white;
-  &:hover {
-    color: #4f5baa;
-  }
-  margin: 1%;
-`
-
 const Page404 = () => (
   <React.Fragment>
     <Code>404</Code>
     <ErrorText>
-      страница не найдена{' '}
-      <LinkToMainPage to="/" title="SUPERNINUPER">
-        <UpArrowCircle height="6rem" />
-      </LinkToMainPage>
+      страница не найдена <LinkToMainPage arrowHeight="6rem" />
     </ErrorText>
     <Footer borderColor="#fef7f47a" textColor="#fef7f4" />
     <GlobalStyle />

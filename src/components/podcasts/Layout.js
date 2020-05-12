@@ -5,7 +5,7 @@ import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
 import Footer from '../Footer'
 import LogoBlock from './LogoBlock'
 import backgroundImage from '../../pages/podcasts/img/podcasts-background.jpeg'
-
+import LinkToMainPage from '../LinkToMainPage'
 // import PropTypes from 'prop-types'
 
 const GlobalStyle = createGlobalStyle`
@@ -19,22 +19,15 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
   }
 `
-const LinkToMainPage = styled(Link)`
-  color: white;
+const LinkToMainPagePositioned = styled(LinkToMainPage)`
   position: absolute;
   top: 0;
   left: 0;
-  &:hover {
-    color: #4f5baa;
-  }
-  margin: 1%;
 `
 
 const Layout = ({ children }) => (
   <React.Fragment>
-    <LinkToMainPage to="/" title="SUPERNINUPER">
-      <UpArrowCircle height="3rem" />
-    </LinkToMainPage>
+    <LinkToMainPagePositioned arrowHeight="3rem" />
     <Link to="/podcasts">
       <LogoBlock />
     </Link>
