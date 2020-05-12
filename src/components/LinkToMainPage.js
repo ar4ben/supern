@@ -6,14 +6,14 @@ import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
 const LinkToRoot = styled(Link)`
   color: white;
   &:hover {
-    color: #4f5baa;
+    color: ${({ hoverColor }) => hoverColor};
   }
   margin: 1%;
 `
 
 const LinkToMainPage = props => (
-  <LinkToRoot to="/" title="SUPERNINUPER">
-    <UpArrowCircle height={props.arrowHeight} />
+  <LinkToRoot to="/" title="SUPERNINUPER" hoverColor={props.hoverColor}>
+    <UpArrowCircle height={props.height ? props.height : '3rem'} />
   </LinkToRoot>
 )
 

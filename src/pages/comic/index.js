@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../../components/Footer'
+import LinkToMainPage from '../../components/LinkToMainPage'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -27,6 +28,7 @@ const MainTitle = styled.h1`
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: -1;
 `
 const MainImage = styled(Img)`
   @media only screen and (max-width: 1300px) {
@@ -69,6 +71,11 @@ const LinkButton = styled.div`
     transition: all 1s ease-in-out;
   }
 `
+const LinkToMainPagePositioned = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+`
 
 class MainComicPage extends React.Component {
   state = {
@@ -93,6 +100,9 @@ class MainComicPage extends React.Component {
     const { data } = this.props
     return (
       <React.Fragment>
+        <LinkToMainPagePositioned style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
+          <LinkToMainPage hoverColor='rgb(204, 255, 0)'/>
+        </LinkToMainPagePositioned>
         <MainTitle style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
           ГИДРАВЛИЧЕСКИЙ
           <br />

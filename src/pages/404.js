@@ -31,7 +31,7 @@ const Page404 = () => (
   <React.Fragment>
     <Code>404</Code>
     <ErrorText>
-      страница не найдена <LinkToMainPage arrowHeight="6rem" />
+      страница не найдена <LinkToMainPage height="6rem" hoverColor="black" />
     </ErrorText>
     <Footer borderColor="#fef7f47a" textColor="#fef7f4" />
     <GlobalStyle />

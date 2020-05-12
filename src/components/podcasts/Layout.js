@@ -19,15 +19,9 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
   }
 `
-const LinkToMainPagePositioned = styled(LinkToMainPage)`
-  position: absolute;
-  top: 0;
-  left: 0;
-`
-
 const Layout = ({ children }) => (
   <React.Fragment>
-    <LinkToMainPagePositioned arrowHeight="3rem" />
+    <LinkToMainPage hoverColor="#4f5baa" />
     <Link to="/podcasts">
       <LogoBlock />
     </Link>

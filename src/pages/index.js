@@ -72,6 +72,9 @@ const MainPage = () => (
       </svg>
     </WaveContainer>
     <Project>
+      <Link to="/comic">ГИДРАВЛИЧЕСКИЙ СЕРЕЖА</Link>
+    </Project>
+    <Project>
       <Link to="/podcasts">ПОДКАСТ</Link>
     </Project>
     <Footer borderColor="#fef7f47a" textColor="#fef7f4" />
