@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../../components/Footer'

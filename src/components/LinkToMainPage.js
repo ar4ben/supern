@@ -11,10 +11,13 @@ const LinkToRoot = styled(Link)`
   margin: 1%;
 `
 
-const LinkToMainPage = props => (
-  <LinkToRoot to="/" title="SUPERNINUPER" hoverColor={props.hoverColor}>
-    <UpArrowCircle height={props.height ? props.height : '3rem'} />
-  </LinkToRoot>
-)
+const LinkToMainPage = props => {
+  const { height, hoverColor } = props
+  return (
+    <LinkToRoot to="/" title="SUPERNINUPER" hoverColor={hoverColor}>
+      <UpArrowCircle height={height || '3rem'} />
+    </LinkToRoot>
+  )
+}
 
 export default LinkToMainPage

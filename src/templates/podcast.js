@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import AudioCard from 'audiocard'
-import { Link, graphql } from 'gatsby'
-import { ArrowGoBack } from 'styled-icons/remix-line/ArrowGoBack'
+import { graphql } from 'gatsby'
 import Layout from '../components/podcasts/Layout'
+import ReturnArrow from '../components/ReturnArrow'
 
 const PodcastBox = styled.div`
   @media only screen and (min-width: 800px) {
@@ -34,18 +34,11 @@ const Date = styled.p`
   text-align: left;
   opacity: 0.7;
 `
-const ReturnButton = styled(Link)`
-  display: flex;
-  justify-content: center;
-  color: #666;
-`
 
 const Podcast = ({ data }) => (
   <Layout>
     <PodcastBox>
-      <ReturnButton to="/podcasts" title="Вернуться">
-        <ArrowGoBack height="3rem" />
-      </ReturnButton>
+      <ReturnArrow to="/podcasts" title="Вернуться" color="#666" />
       <Title>{data.markdownRemark.frontmatter.title}</Title>
       <Date>{data.markdownRemark.frontmatter.date}</Date>
       <Description dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />

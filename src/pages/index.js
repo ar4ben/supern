@@ -72,7 +72,7 @@ const MainPage = () => (
       </svg>
     </WaveContainer>
     <Project>
-      <Link to="/comic">ГИДРАВЛИЧЕСКИЙ СЕРЕЖА</Link>
+      <Link to="/comic">НАРОДНЫЙ КОМИКС</Link>
     </Project>
     <Project>
       <Link to="/podcasts">ПОДКАСТ</Link>
