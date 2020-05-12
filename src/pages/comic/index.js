@@ -5,32 +5,110 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../../components/Footer'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    height: 100%;
+  }
   body {
+    min-height: 100%;
+    margin: 0;
     background-color: black;
     font-family: 'Exo 2', sans-serif;
   }
 `
 const MainTitle = styled.h1`
   color: rgb(204, 255, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 5vw;
   text-align: center;
-  margin: 20% 0 20% 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+`
+const MainImage = styled(Img)`
+  @media only screen and (max-width: 1300px) {
+    width: 70%
+  }
+  @media only screen and (max-width: 800px) {
+    width: 100%
+  }
+  @media only screen and (min-width: 1300px) {
+    width: 50%
+  }
+  margin: auto 
+`
+const MainPageBody= styled.div`
+  position: absolute; 
+  top: 100%;  
+  width: 100%;
+`
+const LinkButton = styled.div`
+  @media only screen and (max-width: 420px) {
+    margin-top: 5%;
+  }
+  display: block;
+  text-align: center;
+  margin-top: 1%;
+  & a {
+    border: 2px solid rgb(204, 255, 0);
+    border-radius: 8px;
+    color: rgb(204, 255, 0);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+  & a:hover {
+    background-color: rgb(204, 255, 0);
+    color: black;
+    transition: all 1s ease-in-out;
+  }
 `
 
-const MainComicPage = ({ data }) => (
-  <React.Fragment>
-    <MainTitle>
-      ГИДРАВЛИЧЕСКИЙ
-      <br />
-      СЕРЕЖА
-    </MainTitle>
-    <Img fluid={data.file.childImageSharp.fluid} />
-    <Link to="/comic/page/2">Читать дальше</Link>
-    <Link to="/comic/contents">Оглавление</Link>
-    <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
-    <GlobalStyle />
-  </React.Fragment>
-)
+class MainComicPage extends React.Component {
+  state = {
+    windowScrollTop: 0
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    this.setState({
+      windowScrollTop: window.scrollY
+    });   
+  }
+
+  render() {
+    const { data } = this.props
+    return (
+      <React.Fragment>
+        <MainTitle style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
+          ГИДРАВЛИЧЕСКИЙ
+          <br />
+          СЕРЕЖА
+        </MainTitle>
+        <MainPageBody>
+          <MainImage fluid={data.file.childImageSharp.fluid}/>
+          <LinkButton><Link to="/comic/page/2">Узнать, что было дальше</Link></LinkButton>
+          <LinkButton><Link to="/comic/contents">Оглавление</Link></LinkButton>
+          <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
+        </MainPageBody>
+        <GlobalStyle />
+      </React.Fragment>
+    )
+  }
+}
 
 export const query = graphql`
   query {
