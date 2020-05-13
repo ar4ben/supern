@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import Footer from '../components/Footer'
+import logo from './superLogo.svg'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
   }
 `
-
 const BigLogo = styled.h1`
   margin-top: 10%;
   color: #c96567;
@@ -23,21 +23,6 @@ const BigLogo = styled.h1`
 `
 const WaveContainer = styled.div`
   position: relative;
-  & path {
-    animation: slidein 40s linear infinite alternate;
-  }
-  @keyframes slidein {
-    0% {
-      d: path('M -600 350 Q -400 250 300 300 Q 700 320 800 300 L 800 0 L 0 0 Z');
-    }
-    50% {
-      d: path('M 0 300 Q 500 -10 800 300 Q 1000 500 1400 300 L 1400 0 L 0 0 Z');
-    }
-
-    100% {
-      d: path('M 0 300 Q 1500 300 2000 300 Q 1000 500 1400 300 L 1400 0 L 0 0 Z');
-    }
-  }
 `
 const Project = styled.div`
   @media only screen and (max-width: 740px) {
@@ -60,16 +45,7 @@ const MainPage = () => (
   <React.Fragment>
     <WaveContainer>
       <BigLogo>SUPERNINUPER</BigLogo>
-      <svg
-        fill="black"
-        stroke="none"
-        xmlns="http://www.w3.org/2000/svg"
-        id="contact-wave"
-        viewBox="0 0 800 350"
-        preserveAspectRatio="none"
-      >
-        <path />
-      </svg>
+      <object data={logo} type="image/svg+xml" />
     </WaveContainer>
     <Project>
       <Link to="/comic">НАРОДНЫЙ КОМИКС</Link>
