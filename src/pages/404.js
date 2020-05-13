@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import React from 'react'
-import { UpArrowCircle } from 'styled-icons/boxicons-solid/UpArrowCircle'
-import { Link } from 'gatsby'
 import Footer from '../components/Footer'
 import LinkToMainPage from '../components/LinkToMainPage'
 

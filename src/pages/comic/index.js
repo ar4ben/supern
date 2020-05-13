@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import Footer from '../../components/Footer'
-import LinkToMainPage from '../../components/LinkToMainPage'
 import Layout from '../../components/comic/Layout'
 
 const MainTitle = styled.h1`

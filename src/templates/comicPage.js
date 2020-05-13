@@ -46,9 +46,9 @@ const ToBeContinuedText = styled.div`
   font-size: 2rem;
 `
 
-const ComicPage = ({ data }) => {
+const ComicPage = ({ data, pageContext }) => {
   const currPage = data.file.fields.pageNumber
-  const lastPage = data.allFile.edges.length
+  const { lastPage } = pageContext
   return (
     <Layout>
       <MainImage fluid={data.file.childImageSharp.fluid} />
@@ -87,18 +87,6 @@ export const query = graphql`
       }
       fields {
         pageNumber
-      }
-    }
-    allFile(
-      filter: {
-        absolutePath: { regex: "content/comic/" }
-        extension: { regex: "/(jpeg|jpg|gif|png)/" }
-      }
-    ) {
-      edges {
-        node {
-          id
-        }
       }
     }
   }

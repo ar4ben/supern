@@ -61,12 +61,13 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  comicPages.data.allFile.edges.forEach(({ node }) => {
+  comicPages.data.allFile.edges.forEach(({ node }, index, arr) => {
     createPage({
       path: `comic/page/${node.fields.pageNumber}`,
       component: path.resolve(`./src/templates/comicPage.js`),
       context: {
         pageNumber: node.fields.pageNumber,
+        lastPage: arr.length,
       },
     })
   })
