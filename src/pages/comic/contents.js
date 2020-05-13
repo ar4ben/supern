@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import ReturnArrow from '../../components/ReturnArrow'
 import Layout from '../../components/comic/Layout'
-import Footer from '../../components/Footer'
 
 const ImageGallery = styled.div`
   @media screen and (min-width: 300px) {
@@ -22,10 +21,9 @@ const ImageGallery = styled.div`
   @media screen and (max-width: 300px) {
     width: 150px;
   }
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  margin-bottom: 20px;
   justify-content: left;
 `
 
@@ -43,13 +41,12 @@ const MainComicPage = ({
   <Layout>
     <ImageGallery>
       {edges.map(edge => (
-        <ImageWrapper to={`comic/page/${edge.node.name}`}>
+        <ImageWrapper key={`${edge.node.name}`} to={`/comic/page/${edge.node.name}`}>
           <Img fixed={edge.node.childImageSharp.fixed} />
         </ImageWrapper>
       ))}
     </ImageGallery>
     <ReturnArrow to="/comic" title="На главную" color="rgb(204, 255, 0)" />
-    <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
   </Layout>
 )
 

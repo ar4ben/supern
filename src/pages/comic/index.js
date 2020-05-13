@@ -33,9 +33,13 @@ const MainImage = styled(Img)`
   margin: auto 
 `
 const MainPageBody= styled.div`
+  @media only screen and (max-width: 800px) {
+    z-index: 0
+  }
   position: absolute; 
   top: 100%;  
   width: 100%;
+  z-index: -1;
 `
 const LinkButton = styled.div`
   @media only screen and (max-width: 420px) {
@@ -83,17 +87,19 @@ class MainComicPage extends React.Component {
 
   render() {
     const { data } = this.props
+    const opacity = 1 - this.state.windowScrollTop / 250
+    const linkToRootPageStyle  = { opacity: opacity, position: 'fixed' }
     return (
-      <Layout>
-        <MainTitle style={{ opacity: 1 - this.state.windowScrollTop / 250 }}>
+      <Layout noFooter linkToRootPageStyle ={linkToRootPageStyle }>
+        <MainTitle style={{ opacity: opacity }}>
           ГИДРАВЛИЧЕСКИЙ
           <br />
           СЕРЕЖА
         </MainTitle>
         <MainPageBody>
           <MainImage fluid={data.file.childImageSharp.fluid}/>
-          <LinkButton><Link to="/comic/page/2">Узнать, что было дальше</Link></LinkButton>
-          <LinkButton><Link to="/comic/contents">Оглавление</Link></LinkButton>
+          <LinkButton><Link to="/comic/page/2">Продолжить историю</Link></LinkButton>
+          <LinkButton><Link to="/comic/contents">Содержание</Link></LinkButton>
           <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
         </MainPageBody>
       </Layout>

@@ -1,26 +1,77 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { createGlobalStyle } from 'styled-components'
-import Footer from '../components/Footer'
+import styled from 'styled-components'
+import { RightArrowCircle } from 'styled-icons/boxicons-regular/RightArrowCircle'
+import { LeftArrowCircle } from 'styled-icons/boxicons-regular/LeftArrowCircle'
+import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
+import ReturnArrow from '../components/ReturnArrow'
+import Layout from '../components/comic/Layout'
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: black;
-    font-family: 'Exo 2', sans-serif;
+const MainImage = styled(Img)`
+  @media only screen and (min-width: 800px) {
+    width: 50%;
   }
-
+  @media only screen and (min-width: 1500px) {
+    width: 40%;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
+  margin: auto;
+`
+const Navigation = styled.div`
+  @media only screen and (min-width: 800px) {
+    width: 50%;
+  }
+  @media only screen and (min-width: 1500px) {
+    width: 30%;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
+  display: flex;
+  margin: auto;
+  padding: 0 1rem 0 1rem;
+  box-sizing: border-box;
+  justify-content: space-evenly;
+  a {
+    color: rgb(204, 255, 0);
+  }
+`
+const ToBeContinuedText = styled.div`
+  color: rgb(204, 255, 0);
+  text-align: center;
+  margin: 2rem 0 3rem 0;
+  font-size: 2rem;
 `
 
-const ComicPage = ({ data }) => (
-  <React.Fragment>
-    <Link to={`comic/page/${data.file.fields.pageNumber - 1}`}>Предыдущая страница</Link>
-    <Link to={`comic/page/${data.file.fields.pageNumber + 1}`}>Следующая страница</Link>
-    <Img fluid={data.file.childImageSharp.fluid} />
-    <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
-    <GlobalStyle />
-  </React.Fragment>
-)
+const ComicPage = ({ data }) => {
+  const currPage = data.file.fields.pageNumber
+  const lastPage = data.allFile.edges.length
+  return (
+    <Layout>
+      <MainImage fluid={data.file.childImageSharp.fluid} />
+      {currPage === lastPage ? <ToBeContinuedText>Продолжение следует...</ToBeContinuedText> : null}
+      <Navigation>
+        {currPage > 1 ? (
+          <Link to={`/comic/page/${data.file.fields.pageNumber - 1}`} title="Предыдущая страница">
+            <LeftArrowCircle height="3rem" />
+          </Link>
+        ) : null}
+        <Link to="/comic/contents" title="Содержание">
+          <BookContent height="3rem" />
+        </Link>
+        <ReturnArrow to="/comic" title="На главную" color="rgb(204, 255, 0)" />
+        {currPage < lastPage ? (
+          <Link to={`/comic/page/${data.file.fields.pageNumber + 1}`} title="Следующая страница">
+            <RightArrowCircle height="3rem" />
+          </Link>
+        ) : null}
+      </Navigation>
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query($pageNumber: Int!) {
@@ -30,12 +81,24 @@ export const query = graphql`
       fields: { pageNumber: { eq: $pageNumber } }
     ) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
       }
       fields {
         pageNumber
+      }
+    }
+    allFile(
+      filter: {
+        absolutePath: { regex: "content/comic/" }
+        extension: { regex: "/(jpeg|jpg|gif|png)/" }
+      }
+    ) {
+      edges {
+        node {
+          id
+        }
       }
     }
   }

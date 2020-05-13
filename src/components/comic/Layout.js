@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import LinkToMainPage from '../LinkToMainPage'
+import Footer from '../Footer'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -13,20 +14,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Exo 2', sans-serif;
   }
 `
-const LinkToMainPagePositioned = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-`
 
-const Layout = ({ children }) => (
-  <React.Fragment>
-    <LinkToMainPagePositioned>
-      <LinkToMainPage hoverColor="rgb(204, 255, 0)" />
-    </LinkToMainPagePositioned>
-    {children}
-    <GlobalStyle />
-  </React.Fragment>
-)
+const Layout = props => {
+  const { children, noFooter, linkToRootPageStyle } = props
+  return (
+    <React.Fragment>
+      <div style={linkToRootPageStyle}>
+        <LinkToMainPage hovercolor="rgb(204, 255, 0)" />
+      </div>
+      {children}
+      {!noFooter && <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />}
+      <GlobalStyle />
+    </React.Fragment>
+  )
+}
 
 export default Layout
