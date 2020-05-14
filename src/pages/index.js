@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../components/Footer'
 import SEO from '../components/SEO'
-import logo from './superLogo.svg'
+import Wave from '../components/mainPage/Wave'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,7 +23,6 @@ const BigLogo = styled.h1`
 `
 const WaveContainer = styled.div`
   position: relative;
-  min-height: 43vw;
 `
 const Project = styled.div`
   @media only screen and (max-width: 740px) {
@@ -47,7 +46,7 @@ const MainPage = () => (
     <SEO image="/src/img/superlogo.png" />
     <WaveContainer>
       <BigLogo>SUPERNINUPER</BigLogo>
-      <object data={logo} type="image/svg+xml" title="wave" />
+      <Wave />
     </WaveContainer>
     <Project>
       <Link to="/comic">НАРОДНЫЙ КОМИКС</Link>
