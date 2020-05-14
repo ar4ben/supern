@@ -7,9 +7,8 @@
 module.exports = {
   siteMetadata: {
     title: 'SUPERNINUPER',
-    image: '/src/img/superlogo.png',
     description: 'Праздник в жизни',
-    siteUrl: 'https://superninuper.by',
+    siteUrl: 'http://localhost:8000/',
   },
   plugins: [
     `gatsby-transformer-remark`,
@@ -30,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `src/img/favicon.png`,
+        icon: `static/favicon.png`,
         name: `SUPERNINUPER`,
         short_name: `SUPERNINUPER`,
         start_url: `/`,

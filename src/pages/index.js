@@ -43,7 +43,7 @@ const Project = styled.div`
 
 const MainPage = () => (
   <React.Fragment>
-    <SEO image="/src/img/superlogo.png" />
+    <SEO image="/superlogo.png" />
     <WaveContainer>
       <BigLogo>SUPERNINUPER</BigLogo>
       <Wave />

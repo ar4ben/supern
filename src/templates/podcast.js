@@ -41,7 +41,7 @@ const Podcast = ({ data }) => (
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.excerpt}
-      image="/src/img/grudkilogo.png"
+      image="/grudkilogo.png"
     />
     <PodcastBox>
       <ReturnArrow to="/podcasts" title="Вернуться" color="#666" />

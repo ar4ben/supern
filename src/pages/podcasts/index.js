@@ -161,7 +161,7 @@ class AllPodcasts extends React.Component {
         <SEO
           title="Грудки нараспашку"
           description="лучшие подкасты во Вселенной"
-          image="/src/img/grudkilogo.png"
+          image="/grudkilogo.png"
         />
         <Container>
           { data.allMarkdownRemark.edges.map(({ node }) => (
