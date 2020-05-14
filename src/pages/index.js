@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 import logo from './superLogo.svg'
 
 const GlobalStyle = createGlobalStyle`
@@ -23,6 +23,7 @@ const BigLogo = styled.h1`
 `
 const WaveContainer = styled.div`
   position: relative;
+  min-height: 43vw;
 `
 const Project = styled.div`
   @media only screen and (max-width: 740px) {
@@ -43,9 +44,10 @@ const Project = styled.div`
 
 const MainPage = () => (
   <React.Fragment>
+    <SEO image="/src/img/superlogo.png" />
     <WaveContainer>
       <BigLogo>SUPERNINUPER</BigLogo>
-      <object data={logo} type="image/svg+xml" />
+      <object data={logo} type="image/svg+xml" title="wave" />
     </WaveContainer>
     <Project>
       <Link to="/comic">НАРОДНЫЙ КОМИКС</Link>

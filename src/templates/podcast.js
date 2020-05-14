@@ -4,6 +4,7 @@ import AudioCard from 'audiocard'
 import { graphql } from 'gatsby'
 import Layout from '../components/podcasts/Layout'
 import ReturnArrow from '../components/ReturnArrow'
+import SEO from '../components/SEO'
 
 const PodcastBox = styled.div`
   @media only screen and (min-width: 800px) {
@@ -37,6 +38,11 @@ const Date = styled.p`
 
 const Podcast = ({ data }) => (
   <Layout>
+    <SEO
+      title={data.markdownRemark.frontmatter.title}
+      description={data.markdownRemark.excerpt}
+      image="/src/img/grudkilogo.png"
+    />
     <PodcastBox>
       <ReturnArrow to="/podcasts" title="Вернуться" color="#666" />
       <Title>{data.markdownRemark.frontmatter.title}</Title>
@@ -54,6 +60,7 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         title
         date(formatString: " D MMMM, YYYY", locale: "ru-RU")

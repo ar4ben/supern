@@ -2,6 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import LinkToMainPage from '../LinkToMainPage'
 import Footer from '../Footer'
+import SEO from '../SEO'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -19,6 +20,7 @@ const Layout = props => {
   const { children, noFooter, linkToRootPageStyle } = props
   return (
     <React.Fragment>
+      <SEO title="Гидравлический Сережа" description="Великий народный комикс" />
       <div style={linkToRootPageStyle}>
         <LinkToMainPage hovercolor="rgb(204, 255, 0)" />
       </div>

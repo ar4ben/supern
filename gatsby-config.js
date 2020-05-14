@@ -5,6 +5,12 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: 'SUPERNINUPER',
+    image: '/src/img/superlogo.png',
+    description: 'Праздник в жизни',
+    siteUrl: 'https://superninuper.by',
+  },
   plugins: [
     `gatsby-transformer-remark`,
     {
@@ -19,6 +25,27 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/img/favicon.png`,
+        name: `SUPERNINUPER`,
+        short_name: `SUPERNINUPER`,
+        start_url: `/`,
+        background_color: `black`,
+        theme_color: `#c96567`,
+        display: `standalone`,
+        cache_busting_mode: `none`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/*'],
+        },
       },
     },
     `gatsby-plugin-sharp`,

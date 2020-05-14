@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import {PlayCircle} from 'styled-icons/boxicons-regular/PlayCircle'
 import AudioCard from 'audiocard'
 import Layout from '../../components/podcasts/Layout'
+import SEO from '../../components/SEO'
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
 //
@@ -157,6 +158,11 @@ class AllPodcasts extends React.Component {
     const { data } = this.props
     return (
       <Layout>
+        <SEO
+          title="Грудки нараспашку"
+          description="лучшие подкасты во Вселенной"
+          image="/src/img/grudkilogo.png"
+        />
         <Container>
           { data.allMarkdownRemark.edges.map(({ node }) => (
             <Convert key={node.id}>
