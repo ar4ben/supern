@@ -75,8 +75,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
 // for debugging in develop mode
 // TODO: comment in production
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    devtool: 'eval-source-map',
-  })
-}
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     devtool: 'eval-source-map',
+//   })
+// }

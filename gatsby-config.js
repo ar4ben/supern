@@ -6,11 +6,17 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'SUPERNINUPER',
+    title: 'Superninuper',
     description: 'Праздник в жизни',
     siteUrl: 'http://localhost:8000/',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-166880703-1',
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-source-filesystem',
@@ -49,5 +55,6 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
   ],
 }
