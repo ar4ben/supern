@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/podcasts/Layout'
 import ReturnArrow from '../components/ReturnArrow'
 import SEO from '../components/SEO'
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 
 const PodcastBox = styled.div`
   @media only screen and (min-width: 800px) {
@@ -36,26 +37,48 @@ const Date = styled.p`
   opacity: 0.7;
 `
 
-const Podcast = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.markdownRemark.frontmatter.title}
-      description={data.markdownRemark.excerpt}
-      image="/grudkilogo.png"
-    />
-    <PodcastBox>
-      <ReturnArrow to="/podcasts" title="Вернуться" color="#666" />
-      <Title>{data.markdownRemark.frontmatter.title}</Title>
-      <Date>{data.markdownRemark.frontmatter.date}</Date>
-      <Description dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      <AudioCard
-        source={data.markdownRemark.frontmatter.soundSource}
-        skipBackSeconds={10}
-        skipForwardSeconds={30}
-      />
-    </PodcastBox>
-  </Layout>
-)
+class Podcast extends React.Component {
+  handleClick = (element , soundTitle) => {
+    const dAttribute = element.target.getAttribute("d")
+    // hack to track click on play svg button
+    if (dAttribute && dAttribute === 'M.25.125l1 .5-1 .5z') {
+      trackCustomEvent({
+        category: soundTitle,
+        action: "Play",
+        label: "Podcasts listening",
+      })
+    }
+  }
+
+  render() {
+    const { data } = this.props
+    return (
+      <Layout>
+        <SEO
+          title={data.markdownRemark.frontmatter.title}
+          description={data.markdownRemark.excerpt}
+          image="/grudkilogo.png"
+        />
+        <PodcastBox>
+          <ReturnArrow to="/podcasts" title="Вернуться" color="#666" />
+          <Title>{data.markdownRemark.frontmatter.title}</Title>
+          <Date>{data.markdownRemark.frontmatter.date}</Date>
+          <Description dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          {/* eslint-disable-next-line*/}
+          <div
+            onClick={element => this.handleClick(element, data.markdownRemark.frontmatter.title)}
+          >
+            <AudioCard
+              source={data.markdownRemark.frontmatter.soundSource}
+              skipBackSeconds={10}
+              skipForwardSeconds={30}
+            />
+          </div>
+        </PodcastBox>
+      </Layout>
+    )
+  }
+}
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
