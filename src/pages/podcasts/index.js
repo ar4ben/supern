@@ -6,6 +6,7 @@ import {PlayCircle} from 'styled-icons/boxicons-regular/PlayCircle'
 import AudioCard from 'audiocard'
 import Layout from '../../components/podcasts/Layout'
 import SEO from '../../components/SEO'
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 // import PropTypes from 'prop-types'
 // import logoSrc from './cover.jpg'
 //
@@ -151,6 +152,11 @@ class AllPodcasts extends React.Component {
 
   handlePlayClick = (element , soundSource, soundTitle) => {
     element.preventDefault()
+    trackCustomEvent({
+      category: soundTitle,
+      action: "Play",
+      label: "Podcasts listening",
+    })
     this.setState(state => ({ isActive: true, currentSoundSource: soundSource, currentSoundTitle: soundTitle }))
   }
 
