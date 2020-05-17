@@ -17,6 +17,8 @@ module.exports = {
         trackingId: 'UA-166880703-1',
       },
     },
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
     `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-source-filesystem',
