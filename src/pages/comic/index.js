@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import SEO from '../../components/SEO'
 import Footer from '../../components/Footer'
 import Layout from '../../components/comic/Layout'
 
@@ -90,6 +91,11 @@ class MainComicPage extends React.Component {
     const linkToRootPageStyle  = { opacity: opacity, position: 'fixed' }
     return (
       <Layout noFooter linkToRootPageStyle ={linkToRootPageStyle }>
+        <SEO
+          title="Гидравлический Сережа"
+          description="народный комикс"
+          image={data.file.childImageSharp.fluid.src}
+        />
         <MainTitle style={{ opacity: opacity }}>
           ГИДРАВЛИЧЕСКИЙ
           <br />

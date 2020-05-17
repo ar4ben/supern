@@ -7,6 +7,7 @@ import { LeftArrowCircle } from 'styled-icons/boxicons-regular/LeftArrowCircle'
 import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
 import ReturnArrow from '../components/ReturnArrow'
 import Layout from '../components/comic/Layout'
+import SEO from '../components/SEO'
 
 const MainImage = styled(Img)`
   @media only screen and (min-width: 800px) {
@@ -51,6 +52,11 @@ const ComicPage = ({ data, pageContext }) => {
   const { lastPage } = pageContext
   return (
     <Layout>
+      <SEO
+        title="Гидравлический Сережа"
+        description={`страница ${currPage}`}
+        image={data.file.childImageSharp.fluid.src}
+      />
       <MainImage fluid={data.file.childImageSharp.fluid} />
       {currPage === lastPage ? <ToBeContinuedText>Продолжение следует...</ToBeContinuedText> : null}
       <Navigation>
