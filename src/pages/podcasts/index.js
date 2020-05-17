@@ -166,7 +166,7 @@ class AllPodcasts extends React.Component {
       <Layout>
         <SEO
           title="Грудки нараспашку"
-          description="лучшие подкасты во Вселенной"
+          description="лучший подкаст во Вселенной"
           image="/grudkilogo.png"
         />
         <Container>
