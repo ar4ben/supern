@@ -31,13 +31,12 @@ const SEO = ({ title, description, image }) => {
       <meta name="description" content={seo.description} />
       {image && <meta name="image" content={seo.image} />}
 
-      {/* <meta property="og:url" content={url} />
-      <meta property="og:type" content="article" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />}
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      {image && <meta property="og:image" content={image} />}
 
-      <meta name="twitter:card" content="summary_large_image" />
+      {/* <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={post.author.twitter} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
