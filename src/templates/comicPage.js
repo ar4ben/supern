@@ -53,8 +53,8 @@ const ComicPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO
-        title="Гидравлический Сережа"
-        description={`страница ${currPage}`}
+        title={`Гидравлический Сережа - страница ${currPage}`}
+        description="народный комикс"
         image={data.file.childImageSharp.fluid.src}
       />
       <MainImage fluid={data.file.childImageSharp.fluid} />
