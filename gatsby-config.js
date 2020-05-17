@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     title: 'Superninuper',
     description: 'Праздник в жизни',
-    siteUrl: 'http://localhost:8000/',
+    siteUrl: 'https://superninuper.by/',
   },
   plugins: [
     {
