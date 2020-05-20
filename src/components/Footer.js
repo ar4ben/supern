@@ -57,6 +57,9 @@ const Footer = props => (
       <a target="_blank" rel="noopener noreferrer" href="https://vk.com/superninuper">
         VK
       </a>
+      <a target="_blank" rel="noopener noreferrer" href="https://t.me/superninuper">
+        Tm
+      </a>
       <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/superninuper">
         Twitter
       </a>
