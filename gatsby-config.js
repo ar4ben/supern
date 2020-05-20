@@ -44,17 +44,17 @@ module.exports = {
         background_color: `black`,
         theme_color: `#c96567`,
         display: `standalone`,
-        cache_busting_mode: `none`,
+        // cache_busting_mode: `none`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/*'],
-        },
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-offline',
+    //   options: {
+    //     workboxConfig: {
+    //       globPatterns: ['**/*'],
+    //     },
+    //   },
+    // },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
