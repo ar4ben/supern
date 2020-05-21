@@ -38,8 +38,8 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: `static/favicon.png`,
-        name: `SUPERNINUPER`,
-        short_name: `SUPERNINUPER`,
+        name: `Superninuper`,
+        short_name: `Superninuper`,
         start_url: `/`,
         background_color: `black`,
         theme_color: `#c96567`,
