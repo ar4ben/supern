@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { Telegram } from 'styled-icons/fa-brands/Telegram'
+import { Twitter } from 'styled-icons/boxicons-logos/Twitter'
+import { Instagram } from 'styled-icons/boxicons-logos/Instagram'
 
 const FooterWrapper = styled.div`
   @media only screen and (max-width: 740px) {
@@ -54,17 +57,14 @@ const Footer = props => (
       <Link to="/">© 2020 SUPERNINUPER</Link>
     </RootLink>
     <SocialLinks>
-      <a target="_blank" rel="noopener noreferrer" href="https://vk.com/superninuper">
-        VK
-      </a>
       <a target="_blank" rel="noopener noreferrer" href="https://t.me/superninuper">
-        Tm
-      </a>
-      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/superninuper">
-        Twitter
+        <Telegram height="2rem" />
       </a>
       <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/superninuper">
-        Instagram
+        <Instagram height="2rem" />
+      </a>
+      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/superninuper">
+        <Twitter height="2rem" />
       </a>
     </SocialLinks>
   </FooterWrapper>
