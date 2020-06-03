@@ -103,8 +103,9 @@ class MainComicPage extends React.Component {
         </MainTitle>
         <MainPageBody>
           <MainImage fluid={data.file.childImageSharp.fluid}/>
-          <LinkButton><Link to="/comic/page/2">Продолжить историю</Link></LinkButton>
+          <LinkButton><Link to="/comic/page/2">Узнать, что было дальше</Link></LinkButton>
           <LinkButton><Link to="/comic/contents">Содержание</Link></LinkButton>
+          <LinkButton><Link to="/comic/about">О проекте</Link></LinkButton>
           <Footer borderColor="rgba(204, 255, 0, 0.5)" textColor="rgb(204, 255, 0)" />
         </MainPageBody>
       </Layout>
@@ -115,7 +116,7 @@ class MainComicPage extends React.Component {
 export const query = graphql`
   query {
     file(
-      absolutePath: { regex: "content/comic/" }
+      absolutePath: { regex: "/content/comic/" }
       extension: { regex: "/(jpeg|jpg|gif|png)/" }
       fields: { pageNumber: { eq: 1 } }
     ) {

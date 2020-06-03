@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: `/${relativeDirectory}`,
     })
-  } else if (node.absolutePath && node.absolutePath.includes('content/comic')) {
+  } else if (node.absolutePath && node.absolutePath.includes('/content/comic')) {
     createNodeField({
       node,
       name: `pageNumber`,
@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const podcasts = await graphql(`
     query {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "content/podcasts/" } }) {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/podcasts/" } }) {
         edges {
           node {
             fields {
@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allFile(
         filter: {
-          absolutePath: { regex: "content/comic/" }
+          absolutePath: { regex: "/content/comic/" }
           extension: { regex: "/(jpeg|jpg|gif|png)/" }
         }
       ) {

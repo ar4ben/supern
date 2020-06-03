@@ -54,7 +54,7 @@ export const query = graphql`
   query {
     allFile(
       filter: {
-        absolutePath: { regex: "content/comic/" }
+        absolutePath: { regex: "/content/comic/" }
         extension: { regex: "/(jpeg|jpg|gif|png)/" }
       }
       sort: { fields: fields___pageNumber, order: ASC }
