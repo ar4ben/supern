@@ -67,9 +67,9 @@ const Footer = props => (
       <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/superninuper">
         <Facebook height="2rem" />
       </a>
-      <a target="_blank" rel="noopener noreferrer" href="https://t.me/superninuper">
+      {/* <a target="_blank" rel="noopener noreferrer" href="https://t.me/superninuper">
         <Telegram height="2rem" />
-      </a>
+      </a> */}
     </SocialLinks>
   </FooterWrapper>
 )
