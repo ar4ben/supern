@@ -1,4 +1,5 @@
 # superninuper.by
+# alternative link: https://superninuper.netlify.app/
 This repo contains the source code powering superninuper.by
 (powered by [Gatsby](https://www.gatsbyjs.org))
 
